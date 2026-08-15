@@ -1,24 +1,44 @@
 import { createFileRoute } from "@tanstack/react-router";
+import Layout from "@/components/layout/Layout";
+import HeroSection from "@/components/home/HeroSection";
+import StatsSection from "@/components/home/StatsSection";
+import ProductSection from "@/components/home/ProductSection";
+import Testimonials from "@/components/home/Testimonials";
+import ServicesSection from "@/components/home/ServicesSection";
+import ExpertsSection from "@/components/home/ExpertsSection";
+import AwardsSection from "@/components/home/AwardsSection";
+import CtaSection from "@/components/home/CtaSection";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Teqnoor | Technology & Innovation Partner" },
+      {
+        name: "description",
+        content:
+          "Teqnoor builds web platforms, apps, cloud solutions and data-driven marketing for ambitious brands worldwide.",
+      },
+      { property: "og:title", content: "Teqnoor | Technology & Innovation Partner" },
+      {
+        property: "og:description",
+        content: "Web, app, cloud and data expertise from one senior team. Meet Teqnoor.",
+      },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <Layout>
+      <HeroSection />
+      <StatsSection />
+      <ProductSection />
+      <Testimonials />
+      <ServicesSection />
+      <ExpertsSection />
+      <AwardsSection />
+      <CtaSection />
+    </Layout>
   );
 }
