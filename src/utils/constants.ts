@@ -16,31 +16,113 @@ export const NAV_LINKS = [
   { label: "Resources", to: "/insights" },
 ] as const;
 
-// Dropdown children shown on hover (MiQ-style mega links)
-export const NAV_DROPDOWNS: Record<string, { label: string; to: string }[]> = {
+// Mega dropdown content shown on hover (MiQ-style) — REPLACE LATER: placeholder images
+export const NAV_DROPDOWNS: Record<
+  string,
+  { label: string; to: string; image: string; description: string }[]
+> = {
   "About us": [
-    { label: "Meet our people", to: "/about" },
-    { label: "Our leaders", to: "/about" },
-    { label: "Where we work", to: "/about" },
+    {
+      label: "Meet our people",
+      to: "/about",
+      image: "https://picsum.photos/seed/about1/480/320",
+      description: "The engineers, designers and analysts behind every build.",
+    },
+    {
+      label: "Our leaders",
+      to: "/about",
+      image: "https://picsum.photos/seed/about2/480/320",
+      description: "Senior practitioners who stay close to the work.",
+    },
+    {
+      label: "Where we work",
+      to: "/about",
+      image: "https://picsum.photos/seed/about3/480/320",
+      description: "Four offices, one delivery culture across time zones.",
+    },
   ],
   Solutions: [
-    { label: "Web development", to: "/services" },
-    { label: "App development", to: "/services" },
-    { label: "Cloud solutions", to: "/services" },
+    {
+      label: "Web development",
+      to: "/services",
+      image: "https://picsum.photos/seed/sol1/480/320",
+      description: "Fast, scalable platforms built on modern foundations.",
+    },
+    {
+      label: "App development",
+      to: "/services",
+      image: "https://picsum.photos/seed/sol2/480/320",
+      description: "Native and cross-platform apps people keep on screen one.",
+    },
+    {
+      label: "Cloud solutions",
+      to: "/services",
+      image: "https://picsum.photos/seed/sol3/480/320",
+      description: "Migrations, cloud native builds and cost engineering.",
+    },
   ],
   Sigma: [
-    { label: "Platform overview", to: "/portfolio" },
-    { label: "Case studies", to: "/portfolio" },
+    {
+      label: "Platform overview",
+      to: "/portfolio",
+      image: "https://picsum.photos/seed/sigma1/480/320",
+      description: "One intelligence layer across your product and data.",
+    },
+    {
+      label: "Case studies",
+      to: "/portfolio",
+      image: "https://picsum.photos/seed/sigma2/480/320",
+      description: "Proof from retail, finance, health and logistics.",
+    },
+    {
+      label: "How it works",
+      to: "/portfolio",
+      image: "https://picsum.photos/seed/sigma3/480/320",
+      description: "Plan, build and optimise in a single workflow.",
+    },
   ],
   "Life at Teqnoor": [
-    { label: "Open roles", to: "/careers" },
-    { label: "Benefits", to: "/careers" },
+    {
+      label: "Open roles",
+      to: "/careers",
+      image: "https://picsum.photos/seed/career1/480/320",
+      description: "Engineering, design, cloud and data positions.",
+    },
+    {
+      label: "Benefits",
+      to: "/careers",
+      image: "https://picsum.photos/seed/career2/480/320",
+      description: "Flexible work, learning budget and real ownership.",
+    },
+    {
+      label: "Our culture",
+      to: "/careers",
+      image: "https://picsum.photos/seed/career3/480/320",
+      description: "Small teams, high trust, work you can point at.",
+    },
   ],
   Resources: [
-    { label: "Insights", to: "/insights" },
-    { label: "Reports", to: "/insights" },
+    {
+      label: "Insights",
+      to: "/insights",
+      image: "https://picsum.photos/seed/res1/480/320",
+      description: "Field notes from the people doing the work.",
+    },
+    {
+      label: "Reports",
+      to: "/insights",
+      image: "https://picsum.photos/seed/res2/480/320",
+      description: "Deep dives on tech, data and product trends.",
+    },
+    {
+      label: "Guides",
+      to: "/insights",
+      image: "https://picsum.photos/seed/res3/480/320",
+      description: "Practical playbooks you can use this quarter.",
+    },
   ],
 };
+
 
 export const REGIONS = ["Global", "EMEA", "APAC", "North America"] as const;
 
