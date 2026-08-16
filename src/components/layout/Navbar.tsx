@@ -7,11 +7,11 @@ import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
-  const [regionOpen, setRegionOpen] = useState(false);
   const [region, setRegion] = useState<string>(REGIONS[0]);
 
+  // Handle scroll effect
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
@@ -30,17 +30,23 @@ export default function Navbar() {
       )}
     >
       <nav className="shell flex items-center justify-between gap-6">
+        {/* Logo */}
         <Link to="/" className="font-display text-2xl font-extrabold tracking-tight text-white">
           <span className="text-gradient">Teq</span>noor
         </Link>
 
+        {/* Desktop Navigation Links */}
         <ul
           className="hidden items-center gap-7 lg:flex"
           onMouseLeave={() => setOpenMenu(null)}
         >
           {NAV_LINKS.map((link) => (
             <li key={link.label} onMouseEnter={() => setOpenMenu(link.label)}>
-              <Link to={link.to} className={linkBase} activeProps={{ className: "text-nav-accent" }}>
+              <Link 
+                to={link.to} 
+                className={linkBase} 
+                activeProps={{ className: "text-nav-accent" }}
+              >
                 {link.label}
                 {NAV_DROPDOWNS[link.label] && <FiChevronDown className="text-xs" aria-hidden />}
               </Link>
@@ -48,46 +54,26 @@ export default function Navbar() {
           ))}
         </ul>
 
-
+        {/* Desktop Right Side */}
         <div className="hidden items-center gap-5 lg:flex">
-          <div
-            className="relative"
-            onMouseEnter={() => setRegionOpen(true)}
-            onMouseLeave={() => setRegionOpen(false)}
-          >
-            <button type="button" className={cn(linkBase, "uppercase tracking-wide")}>
+          {/* Region Selector */}
+          <div className="relative">
+            <button 
+              type="button" 
+              className={cn(linkBase, "uppercase tracking-wide")}
+              onClick={() => {
+                const currentIndex = REGIONS.indexOf(region as typeof REGIONS[number]);
+                const nextIndex = (currentIndex + 1) % REGIONS.length;
+                setRegion(REGIONS[nextIndex]);
+              }}
+            >
               <FiGlobe aria-hidden />
               {region}
               <FiChevronDown className="text-xs" aria-hidden />
             </button>
-            <AnimatePresence>
-              {regionOpen && (
-                <motion.ul
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute right-0 top-full w-40 rounded-sm border border-border bg-nav/98 p-2 shadow-xl backdrop-blur"
-                >
-                  {REGIONS.map((r) => (
-                    <li key={r}>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setRegion(r);
-                          setRegionOpen(false);
-                        }}
-                        className="block w-full rounded-sm px-3 py-2 text-left text-sm text-white/85 transition-colors hover:bg-white/5 hover:text-nav-accent"
-                      >
-                        {r}
-                      </button>
-                    </li>
-                  ))}
-                </motion.ul>
-              )}
-            </AnimatePresence>
           </div>
 
+          {/* CTA Button */}
           <Link
             to="/contact"
             className="gradient-pink-orange inline-flex items-center rounded-sm px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-all duration-300 hover:brightness-110 hover:glow"
@@ -96,17 +82,18 @@ export default function Navbar() {
           </Link>
         </div>
 
+        {/* Mobile Menu Toggle */}
         <button
           type="button"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((v) => !v)}
+          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMobileMenuOpen((v) => !v)}
           className="rounded-sm border border-border p-2 text-white lg:hidden"
         >
-          {open ? <FiX size={20} /> : <FiMenu size={20} />}
+          {mobileMenuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
         </button>
       </nav>
 
-      {/* Mega dropdown — REPLACE LATER: placeholder imagery */}
+      {/* Desktop Mega Dropdown - Taller with Full Descriptions */}
       <AnimatePresence>
         {openMenu && NAV_DROPDOWNS[openMenu] && (
           <motion.div
@@ -116,39 +103,49 @@ export default function Navbar() {
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
             onMouseEnter={() => setOpenMenu(openMenu)}
             onMouseLeave={() => setOpenMenu(null)}
-            className="absolute inset-x-0 top-full hidden border-t border-border bg-nav/98 shadow-2xl backdrop-blur lg:block"
+            className="absolute inset-x-0 top-full hidden border-t border-white/10 bg-[#1a1a2e]/95 shadow-2xl backdrop-blur lg:block max-h-[80vh] overflow-y-auto"
           >
-            <div className="shell grid grid-cols-3 gap-6 py-8">
-              {NAV_DROPDOWNS[openMenu]!.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.to}
-                  onClick={() => setOpenMenu(null)}
-                  className="group block rounded-sm p-3 transition-colors hover:bg-white/5"
-                >
-                  <div className="aspect-[3/2] overflow-hidden rounded-sm">
-                    <img
-                      src={item.image}
-                      alt={item.label}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <p className="mt-4 text-sm font-bold uppercase tracking-wide text-white transition-colors group-hover:text-nav-accent">
-                    {item.label}
-                  </p>
-                  <p className="mt-1 text-sm leading-relaxed text-white/70">{item.description}</p>
-                </Link>
-              ))}
+            <div className="shell flex gap-8 px-4 md:px-8 py-10 min-h-[400px]">
+              {/* LEFT: Image - Taller */}
+              <div className="w-[35%] flex-shrink-0">
+                <div className="aspect-[3/4] overflow-hidden rounded-sm">
+                  <img
+                    src={NAV_DROPDOWNS[openMenu].image}
+                    alt={openMenu}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* RIGHT: Links (2 columns) - Taller with Paragraph Descriptions */}
+              <div className="flex-1 grid grid-cols-2 gap-x-8 gap-y-4">
+                {NAV_DROPDOWNS[openMenu].links.map((link) => (
+                  <Link
+                    key={link.label}
+                    to={link.to}
+                    onClick={() => setOpenMenu(null)}
+                    className="group block rounded-sm p-3 transition-colors hover:bg-white/5"
+                  >
+                    <p className="text-sm font-bold uppercase tracking-wide text-white transition-colors group-hover:text-[#e94560]">
+                      {link.label}
+                    </p>
+                    {link.description && (
+                      <p className="text-xs leading-relaxed text-white/70 mt-1.5 max-w-prose">
+                        {link.description}
+                      </p>
+                    )}
+                  </Link>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-
-
+      {/* Mobile Menu */}
       <AnimatePresence>
-        {open && (
+        {mobileMenuOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
@@ -161,7 +158,7 @@ export default function Navbar() {
                 <li key={link.label}>
                   <Link
                     to={link.to}
-                    onClick={() => setOpen(false)}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="block rounded-sm px-2 py-3 text-base font-medium text-white hover:text-nav-accent"
                   >
                     {link.label}
@@ -174,7 +171,7 @@ export default function Navbar() {
               <li className="px-2 pt-2">
                 <Link
                   to="/contact"
-                  onClick={() => setOpen(false)}
+                  onClick={() => setMobileMenuOpen(false)}
                   className="gradient-pink-orange inline-flex w-full items-center justify-center rounded-sm px-6 py-3 text-sm font-bold uppercase tracking-wide text-white"
                 >
                   Let&apos;s talk

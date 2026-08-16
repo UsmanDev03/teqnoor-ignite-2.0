@@ -16,113 +16,170 @@ export const NAV_LINKS = [
   { label: "Resources", to: "/insights" },
 ] as const;
 
-// Mega dropdown content shown on hover (MiQ-style) — REPLACE LATER: placeholder images
+// Mega dropdown content - Teqnoor + MiQ style
 export const NAV_DROPDOWNS: Record<
   string,
-  { label: string; to: string; image: string; description: string }[]
+  {
+    image: string;
+    links: { label: string; to: string; description?: string }[];
+  }
 > = {
-  "About us": [
-    {
-      label: "Meet our people",
-      to: "/about",
-      image: "https://picsum.photos/seed/about1/480/320",
-      description: "The engineers, designers and analysts behind every build.",
-    },
-    {
-      label: "Our leaders",
-      to: "/about",
-      image: "https://picsum.photos/seed/about2/480/320",
-      description: "Senior practitioners who stay close to the work.",
-    },
-    {
-      label: "Where we work",
-      to: "/about",
-      image: "https://picsum.photos/seed/about3/480/320",
-      description: "Four offices, one delivery culture across time zones.",
-    },
-  ],
-  Solutions: [
-    {
-      label: "Web development",
-      to: "/services",
-      image: "https://picsum.photos/seed/sol1/480/320",
-      description: "Fast, scalable platforms built on modern foundations.",
-    },
-    {
-      label: "App development",
-      to: "/services",
-      image: "https://picsum.photos/seed/sol2/480/320",
-      description: "Native and cross-platform apps people keep on screen one.",
-    },
-    {
-      label: "Cloud solutions",
-      to: "/services",
-      image: "https://picsum.photos/seed/sol3/480/320",
-      description: "Migrations, cloud native builds and cost engineering.",
-    },
-  ],
-  Sigma: [
-    {
-      label: "Platform overview",
-      to: "/portfolio",
-      image: "https://picsum.photos/seed/sigma1/480/320",
-      description: "One intelligence layer across your product and data.",
-    },
-    {
-      label: "Case studies",
-      to: "/portfolio",
-      image: "https://picsum.photos/seed/sigma2/480/320",
-      description: "Proof from retail, finance, health and logistics.",
-    },
-    {
-      label: "How it works",
-      to: "/portfolio",
-      image: "https://picsum.photos/seed/sigma3/480/320",
-      description: "Plan, build and optimise in a single workflow.",
-    },
-  ],
-  "Life at Teqnoor": [
-    {
-      label: "Open roles",
-      to: "/careers",
-      image: "https://picsum.photos/seed/career1/480/320",
-      description: "Engineering, design, cloud and data positions.",
-    },
-    {
-      label: "Benefits",
-      to: "/careers",
-      image: "https://picsum.photos/seed/career2/480/320",
-      description: "Flexible work, learning budget and real ownership.",
-    },
-    {
-      label: "Our culture",
-      to: "/careers",
-      image: "https://picsum.photos/seed/career3/480/320",
-      description: "Small teams, high trust, work you can point at.",
-    },
-  ],
-  Resources: [
-    {
-      label: "Insights",
-      to: "/insights",
-      image: "https://picsum.photos/seed/res1/480/320",
-      description: "Field notes from the people doing the work.",
-    },
-    {
-      label: "Reports",
-      to: "/insights",
-      image: "https://picsum.photos/seed/res2/480/320",
-      description: "Deep dives on tech, data and product trends.",
-    },
-    {
-      label: "Guides",
-      to: "/insights",
-      image: "https://picsum.photos/seed/res3/480/320",
-      description: "Practical playbooks you can use this quarter.",
-    },
-  ],
+  "About us": {
+    image: "https://picsum.photos/seed/about-main/600/400",
+    links: [
+      {
+        label: "Meet our people",
+        to: "/about",
+        description: "The engineers, data scientists and strategists behind every Teqnoor build. 200+ experts across 4 global offices.",
+      },
+      {
+        label: "Our leadership",
+        to: "/about/leaders",
+        description: "Senior practitioners with 15+ years of experience. Leaders who ship code, design products and mentor teams.",
+      },
+      {
+        label: "Where we work",
+        to: "/about/locations",
+        description: "Dubai, Karachi, London and New York. One delivery culture across time zones, turning complexity into clarity.",
+      },
+      {
+        label: "Spark24",
+        to: "/about/spark24",
+        description: "Teqnoor's flagship 24-hour innovation event. Building, breaking and solving real challenges with clients and partners.",
+      },
+      {
+        label: "Trust & values",
+        to: "/about/trust",
+        description: "Transparency, integrity and delivery. When you work with Teqnoor, you work with a partner who owns the outcome.",
+      },
+      {
+        label: "Inclusion & ESG",
+        to: "/about/inclusion",
+        description: "Diversity drives our innovation. Committed to sustainable practices, ethical AI and building a better industry.",
+      },
+    ],
+  },
+  Solutions: {
+    image: "https://picsum.photos/seed/solutions-main/600/400",
+    links: [
+      {
+        label: "Web Development",
+        to: "/services/web",
+        description: "High-performance web platforms built on modern foundations. React, Next.js, TypeScript and edge-first architectures.",
+      },
+      {
+        label: "App Development",
+        to: "/services/app",
+        description: "Native and cross-platform apps your customers keep on screen. iOS, Android and React Native with pixel-perfect design.",
+      },
+      {
+        label: "Cloud Solutions",
+        to: "/services/cloud",
+        description: "Cloud native infrastructure, migrations and cost engineering. AWS, Azure and GCP experts who cut cloud bills by a third.",
+      },
+      {
+        label: "Digital Marketing",
+        to: "/services/marketing",
+        description: "Full funnel programmatic campaigns driven by real data. Creative excellence meets performance marketing that scales.",
+      },
+      {
+        label: "IT Consulting",
+        to: "/services/consulting",
+        description: "Strategy, architecture and delivery guidance from senior practitioners. Navigate complex technology decisions with confidence.",
+      },
+      {
+        label: "UI/UX Design",
+        to: "/services/design",
+        description: "Research led product design that turns complexity into clarity. Beautiful, functional interfaces that make technology accessible.",
+      },
+    ],
+  },
+  Sigma: {
+    image: "https://picsum.photos/seed/sigma-main/600/400",
+    links: [
+      {
+        label: "Platform overview",
+        to: "/portfolio",
+        description: "Sigma is Teqnoor's AI-powered intelligence platform. One unified layer connecting your product, data and decision-making.",
+      },
+      {
+        label: "Case studies",
+        to: "/portfolio/case-studies",
+        description: "How leading brands use Sigma to transform operations. Real results from retail, finance, healthcare and logistics.",
+      },
+      {
+        label: "How it works",
+        to: "/portfolio/how-it-works",
+        description: "Plan, build and optimise in a single workflow. Predictive analytics, real-time insights and automated execution.",
+      },
+      {
+        label: "Pricing",
+        to: "/portfolio/pricing",
+        description: "Flexible plans for startups to enterprises. Pay for what you use, scale when you grow. No hidden fees, no lock-in.",
+      },
+      {
+        label: "Integrations",
+        to: "/portfolio/integrations",
+        description: "Connect Sigma with your CRM, analytics and business systems. One unified ecosystem that works with your existing tools.",
+      },
+    ],
+  },
+  "Life at Teqnoor": {
+    image: "https://picsum.photos/seed/careers-main/600/400",
+    links: [
+      {
+        label: "Open roles",
+        to: "/careers",
+        description: "Join 200+ Teqnoor engineers, designers and data scientists. Frontend, backend, cloud, AI and product roles across all offices.",
+      },
+      {
+        label: "Benefits",
+        to: "/careers/benefits",
+        description: "Hybrid work, $2,000 learning budget, full health cover, paid sabbatical, home office setup and profit share.",
+      },
+      {
+        label: "Our culture",
+        to: "/careers/culture",
+        description: "Small teams, high trust, work you can point at. Ship fast, learn faster. Great things happen when great people collaborate.",
+      },
+      {
+        label: "Learning & growth",
+        to: "/careers/learning",
+        description: "Courses, conferences and mentorship programs. We invest in your growth so you stay at the forefront of your field.",
+      },
+    ],
+  },
+  Resources: {
+    image: "https://picsum.photos/seed/resources-main/600/400",
+    links: [
+      {
+        label: "Insights",
+        to: "/insights",
+        description: "Field notes from Teqnoor's engineers, designers and strategists. Real stories from real projects, no fluff.",
+      },
+      {
+        label: "Reports",
+        to: "/insights/reports",
+        description: "Deep dives on technology, data and product trends. Research backed by 15+ years of Teqnoor experience.",
+      },
+      {
+        label: "Guides",
+        to: "/insights/guides",
+        description: "Practical playbooks you can use this quarter. From cloud migrations to design systems, we share what works.",
+      },
+      {
+        label: "Webinars",
+        to: "/insights/webinars",
+        description: "Live sessions featuring Teqnoor experts. Learn about AI, product development, cloud engineering and digital transformation.",
+      },
+      {
+        label: "Podcasts",
+        to: "/insights/podcasts",
+        description: "Conversations with industry leaders and Teqnoor innovators. Big ideas and emerging trends shaping technology.",
+      },
+    ],
+  },
 };
-
 
 export const REGIONS = ["Global", "EMEA", "APAC", "North America"] as const;
 
