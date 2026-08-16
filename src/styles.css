@@ -44,6 +44,8 @@
   --color-brand-purple: var(--brand-purple);
   --color-brand-pink: var(--brand-pink);
   --color-brand-cyan: var(--brand-cyan);
+  --color-nav: var(--nav);
+  --color-nav-accent: var(--nav-accent);
   --color-brand-orange: var(--brand-orange);
   --color-brand-gold: var(--brand-gold);
   --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
@@ -83,6 +85,10 @@
   --brand-cyan: oklch(0.79 0.15 210);
   --brand-orange: oklch(0.7 0.19 42);
   --brand-gold: oklch(0.82 0.16 85);
+
+  /* MiQ-exact nav palette */
+  --nav: oklch(0.191 0.043 285); /* #1a1a2e */
+  --nav-accent: oklch(0.629 0.203 17); /* #e94560 */
 
   --gradient-hero: linear-gradient(
     120deg,
