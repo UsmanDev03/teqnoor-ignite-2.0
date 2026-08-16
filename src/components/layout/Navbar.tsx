@@ -106,6 +106,47 @@ export default function Navbar() {
         </button>
       </nav>
 
+      {/* Mega dropdown — REPLACE LATER: placeholder imagery */}
+      <AnimatePresence>
+        {openMenu && NAV_DROPDOWNS[openMenu] && (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            onMouseEnter={() => setOpenMenu(openMenu)}
+            onMouseLeave={() => setOpenMenu(null)}
+            className="absolute inset-x-0 top-full hidden border-t border-border bg-nav/98 shadow-2xl backdrop-blur lg:block"
+          >
+            <div className="shell grid grid-cols-3 gap-6 py-8">
+              {NAV_DROPDOWNS[openMenu]!.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  onClick={() => setOpenMenu(null)}
+                  className="group block rounded-sm p-3 transition-colors hover:bg-white/5"
+                >
+                  <div className="aspect-[3/2] overflow-hidden rounded-sm">
+                    <img
+                      src={item.image}
+                      alt={item.label}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <p className="mt-4 text-sm font-bold uppercase tracking-wide text-white transition-colors group-hover:text-nav-accent">
+                    {item.label}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-white/70">{item.description}</p>
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+
+
       <AnimatePresence>
         {open && (
           <motion.div
