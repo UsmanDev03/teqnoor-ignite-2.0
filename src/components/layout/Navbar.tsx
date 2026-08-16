@@ -34,44 +34,20 @@ export default function Navbar() {
           <span className="text-gradient">Teq</span>noor
         </Link>
 
-        <ul className="hidden items-center gap-7 lg:flex">
+        <ul
+          className="hidden items-center gap-7 lg:flex"
+          onMouseLeave={() => setOpenMenu(null)}
+        >
           {NAV_LINKS.map((link) => (
-            <li
-              key={link.label}
-              className="relative"
-              onMouseEnter={() => setOpenMenu(link.label)}
-              onMouseLeave={() => setOpenMenu(null)}
-            >
+            <li key={link.label} onMouseEnter={() => setOpenMenu(link.label)}>
               <Link to={link.to} className={linkBase} activeProps={{ className: "text-nav-accent" }}>
                 {link.label}
                 {NAV_DROPDOWNS[link.label] && <FiChevronDown className="text-xs" aria-hidden />}
               </Link>
-
-              <AnimatePresence>
-                {openMenu === link.label && NAV_DROPDOWNS[link.label] && (
-                  <motion.ul
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-0 top-full w-56 rounded-sm border border-border bg-nav/98 p-2 shadow-xl backdrop-blur"
-                  >
-                    {NAV_DROPDOWNS[link.label]!.map((child) => (
-                      <li key={child.label}>
-                        <Link
-                          to={child.to}
-                          className="block rounded-sm px-3 py-2 text-sm text-white/85 transition-colors hover:bg-white/5 hover:text-nav-accent"
-                        >
-                          {child.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </motion.ul>
-                )}
-              </AnimatePresence>
             </li>
           ))}
         </ul>
+
 
         <div className="hidden items-center gap-5 lg:flex">
           <div
