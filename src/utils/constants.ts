@@ -10,12 +10,51 @@ export const BRAND = {
 
 export const NAV_LINKS = [
   { label: "About us", to: "/about" },
-  { label: "Services", to: "/services" },
-  { label: "Portfolio", to: "/portfolio" },
-  { label: "Insights", to: "/insights" },
-  { label: "Careers", to: "/careers" },
-  { label: "Contact", to: "/contact" },
+  { label: "Solutions", to: "/services" },
+  { label: "Sigma", to: "/portfolio" },
+  { label: "Life at Teqnoor", to: "/careers" },
+  { label: "Resources", to: "/insights" },
 ] as const;
+
+// Dropdown children shown on hover (MiQ-style mega links)
+export const NAV_DROPDOWNS: Record<string, { label: string; to: string }[]> = {
+  "About us": [
+    { label: "Meet our people", to: "/about" },
+    { label: "Our leaders", to: "/about" },
+    { label: "Where we work", to: "/about" },
+  ],
+  Solutions: [
+    { label: "Web development", to: "/services" },
+    { label: "App development", to: "/services" },
+    { label: "Cloud solutions", to: "/services" },
+  ],
+  Sigma: [
+    { label: "Platform overview", to: "/portfolio" },
+    { label: "Case studies", to: "/portfolio" },
+  ],
+  "Life at Teqnoor": [
+    { label: "Open roles", to: "/careers" },
+    { label: "Benefits", to: "/careers" },
+  ],
+  Resources: [
+    { label: "Insights", to: "/insights" },
+    { label: "Reports", to: "/insights" },
+  ],
+};
+
+export const REGIONS = ["Global", "EMEA", "APAC", "North America"] as const;
+
+export const HERO_STATS = [
+  { value: "15+", label: "Years" },
+  { value: "500+", label: "Projects" },
+  { value: "200+", label: "Clients" },
+];
+
+// REPLACE WITH REAL VIDEO LATER
+export const HERO_VIDEO_URL =
+  "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4";
+// REPLACE LATER: placeholder thumbnail
+export const HERO_VIDEO_POSTER = "https://picsum.photos/seed/teqnoor-hero/960/640";
 
 export const STATS = [
   { number: 15, suffix: "", label: "Years of excellence", tone: "brand-blue" },
