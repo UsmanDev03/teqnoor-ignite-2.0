@@ -9,9 +9,14 @@ export default function HeroSection() {
   const [videoOpen, setVideoOpen] = useState(false);
 
   return (
-    <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-nav pt-32 pb-20">
-      <div className="gradient-hero absolute inset-0 opacity-70" aria-hidden />
-      <div className="absolute inset-0 bg-nav/60" aria-hidden />
+    <section className="relative flex h-[80vh] min-h-[600px] w-full items-center overflow-hidden bg-nav pt-24">
+      <div
+        className="absolute inset-0"
+        style={{ background: "linear-gradient(120deg, #1a1a2e 0%, #0f3460 100%)" }}
+        aria-hidden
+      />
+      <div className="gradient-hero absolute inset-0 opacity-30" aria-hidden />
+
 
       <motion.div
         initial="hidden"

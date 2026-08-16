@@ -34,44 +34,20 @@ export default function Navbar() {
           <span className="text-gradient">Teq</span>noor
         </Link>
 
-        <ul className="hidden items-center gap-7 lg:flex">
+        <ul
+          className="hidden items-center gap-7 lg:flex"
+          onMouseLeave={() => setOpenMenu(null)}
+        >
           {NAV_LINKS.map((link) => (
-            <li
-              key={link.label}
-              className="relative"
-              onMouseEnter={() => setOpenMenu(link.label)}
-              onMouseLeave={() => setOpenMenu(null)}
-            >
+            <li key={link.label} onMouseEnter={() => setOpenMenu(link.label)}>
               <Link to={link.to} className={linkBase} activeProps={{ className: "text-nav-accent" }}>
                 {link.label}
                 {NAV_DROPDOWNS[link.label] && <FiChevronDown className="text-xs" aria-hidden />}
               </Link>
-
-              <AnimatePresence>
-                {openMenu === link.label && NAV_DROPDOWNS[link.label] && (
-                  <motion.ul
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute left-0 top-full w-56 rounded-sm border border-border bg-nav/98 p-2 shadow-xl backdrop-blur"
-                  >
-                    {NAV_DROPDOWNS[link.label]!.map((child) => (
-                      <li key={child.label}>
-                        <Link
-                          to={child.to}
-                          className="block rounded-sm px-3 py-2 text-sm text-white/85 transition-colors hover:bg-white/5 hover:text-nav-accent"
-                        >
-                          {child.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </motion.ul>
-                )}
-              </AnimatePresence>
             </li>
           ))}
         </ul>
+
 
         <div className="hidden items-center gap-5 lg:flex">
           <div
@@ -129,6 +105,47 @@ export default function Navbar() {
           {open ? <FiX size={20} /> : <FiMenu size={20} />}
         </button>
       </nav>
+
+      {/* Mega dropdown — REPLACE LATER: placeholder imagery */}
+      <AnimatePresence>
+        {openMenu && NAV_DROPDOWNS[openMenu] && (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            onMouseEnter={() => setOpenMenu(openMenu)}
+            onMouseLeave={() => setOpenMenu(null)}
+            className="absolute inset-x-0 top-full hidden border-t border-border bg-nav/98 shadow-2xl backdrop-blur lg:block"
+          >
+            <div className="shell grid grid-cols-3 gap-6 py-8">
+              {NAV_DROPDOWNS[openMenu]!.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.to}
+                  onClick={() => setOpenMenu(null)}
+                  className="group block rounded-sm p-3 transition-colors hover:bg-white/5"
+                >
+                  <div className="aspect-[3/2] overflow-hidden rounded-sm">
+                    <img
+                      src={item.image}
+                      alt={item.label}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <p className="mt-4 text-sm font-bold uppercase tracking-wide text-white transition-colors group-hover:text-nav-accent">
+                    {item.label}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-white/70">{item.description}</p>
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+
 
       <AnimatePresence>
         {open && (
