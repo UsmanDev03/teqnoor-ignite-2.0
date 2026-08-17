@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FiPlay, FiX, FiArrowRight, FiCpu, FiZap, FiGlobe } from "react-icons/fi";
+import { FiPlay, FiX, FiArrowRight } from "react-icons/fi";
 import Button from "@/components/common/Button";
 import { fadeIn, staggerContainer } from "@/utils/animations";
 import { HERO_STATS, HERO_VIDEO_POSTER, HERO_VIDEO_URL } from "@/utils/constants";
@@ -10,84 +10,119 @@ export default function HeroSection() {
 
   return (
     <section className="relative flex h-[85vh] min-h-[700px] w-full items-center overflow-hidden bg-nav pt-24">
-      {/* Background - Tech Gradient */}
+      {/* Background - Vibrant Purple to Red/Orange Gradient */}
       <div
         className="absolute inset-0"
         style={{ 
-          background: "linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 30%, #0f3460 60%, #0a0a2a 100%)" 
+          background: "linear-gradient(135deg, #1a0a2e 0%, #2d1b69 25%, #4a1942 50%, #7a1a3a 75%, #c0392b 100%)" 
         }}
         aria-hidden
       />
       
-      {/* Animated Circuit Lines Background */}
-      <div className="absolute inset-0 opacity-[0.05] overflow-hidden">
-        {[...Array(8)].map((_, i) => (
+      {/* Vibrant Glow Orbs - Purple/Red/Orange */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[
+          { x: "15%", y: "20%", size: "50vh", color: "rgba(138, 43, 226, 0.25)", delay: 0, dur: 10 },
+          { x: "75%", y: "60%", size: "60vh", color: "rgba(231, 76, 60, 0.2)", delay: 3, dur: 14 },
+          { x: "45%", y: "80%", size: "40vh", color: "rgba(241, 196, 15, 0.15)", delay: 6, dur: 12 },
+          { x: "85%", y: "25%", size: "45vh", color: "rgba(155, 89, 182, 0.2)", delay: 2, dur: 16 },
+          { x: "10%", y: "70%", size: "35vh", color: "rgba(192, 57, 43, 0.15)", delay: 4, dur: 18 },
+        ].map((orb, i) => (
           <motion.div
             key={i}
-            className="absolute h-[1px] w-full bg-white"
+            className="absolute rounded-full"
             style={{
-              top: `${(i + 1) * 12}%`,
+              left: orb.x,
+              top: orb.y,
+              width: orb.size,
+              height: orb.size,
+              background: `radial-gradient(circle, ${orb.color} 0%, transparent 70%)`,
             }}
             animate={{
-              x: ["-100%", "100%"],
+              x: [0, 40, -30, 0],
+              y: [0, -50, 30, 0],
+              scale: [1, 1.15, 0.85, 1],
             }}
             transition={{
-              duration: 8 + i * 0.5,
+              duration: orb.dur,
               repeat: Infinity,
-              ease: "linear",
+              ease: "easeInOut",
+              delay: orb.delay,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Floating Particles - Purple/Red/Orange */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(35)].map((_, i) => {
+          const colors = ["#8e44ad", "#e74c3c", "#f39c12", "#9b59b6", "#c0392b"];
+          return (
+            <motion.div
+              key={i}
+              className="absolute rounded-full"
+              style={{
+                width: Math.random() * 6 + 2,
+                height: Math.random() * 6 + 2,
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                background: colors[i % colors.length],
+                opacity: 0.3,
+                boxShadow: `0 0 20px ${colors[i % colors.length]}40`,
+              }}
+              animate={{
+                y: [0, -Math.random() * 300 - 100, 0],
+                x: [0, (Math.random() - 0.5) * 150, 0],
+                opacity: [0, 0.6, 0],
+                scale: [0.3, 1.5, 0.3],
+                rotate: [0, Math.random() * 360, 0],
+              }}
+              transition={{
+                duration: 6 + Math.random() * 8,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: Math.random() * 5,
+              }}
+            />
+          );
+        })}
+      </div>
+
+      {/* Diagonal Light Rays */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.03]">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={`ray-${i}`}
+            className="absolute h-[200%] w-[1px] bg-white"
+            style={{
+              left: `${10 + i * 16}%`,
+              top: "-50%",
+              transform: `rotate(${15 + i * 5}deg)`,
+              transformOrigin: "center center",
+            }}
+            animate={{
+              opacity: [0, 0.5, 0],
+              scaleY: [0.5, 1.5, 0.5],
+            }}
+            transition={{
+              duration: 4 + i * 0.5,
+              repeat: Infinity,
+              ease: "easeInOut",
               delay: i * 0.3,
             }}
           />
         ))}
       </div>
-      
-      {/* Animated Gradient Orbs - Fast */}
-      <div 
-        className="absolute inset-0 opacity-60" 
-        style={{
-          background: "radial-gradient(circle at 20% 30%, rgba(0, 200, 255, 0.2) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(233, 69, 96, 0.25) 0%, transparent 40%), radial-gradient(circle at 50% 50%, rgba(100, 100, 255, 0.1) 0%, transparent 60%)"
-        }}
-        aria-hidden
-      />
-      
-      {/* Tech Grid Overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.04]" 
-        style={{
-          backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px"
-        }}
-        aria-hidden
-      />
 
-      {/* Floating Tech Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              width: Math.random() * 4 + 2,
-              height: Math.random() * 4 + 2,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              background: i % 2 === 0 ? "#e94560" : "#00ccff",
-            }}
-            animate={{
-              y: [0, -100 - Math.random() * 100, 0],
-              x: [0, (Math.random() - 0.5) * 60, 0],
-              opacity: [0, 0.8, 0],
-              scale: [0.5, 1.5, 0.5],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: Math.random() * 3,
-            }}
-          />
-        ))}
-      </div>
+      {/* Subtle Grid Overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.03]" 
+        style={{
+          backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.2) 1px, transparent 0)",
+          backgroundSize: "50px 50px"
+        }}
+        aria-hidden
+      />
 
       {/* Main Content - Grid Layout */}
       <motion.div
@@ -98,17 +133,17 @@ export default function HeroSection() {
       >
         {/* Left Column - 6 columns */}
         <div className="col-span-12 flex flex-col justify-center lg:col-span-6">
-          {/* Badge - Tech Style */}
+          {/* Badge - Vibrant Style */}
           <motion.div
             variants={fadeIn}
-            className="inline-flex items-center gap-2 rounded-full border border-[#e94560]/30 bg-[#e94560]/10 px-4 py-1.5 mb-4 w-fit"
+            className="inline-flex items-center gap-2 rounded-full border border-[#e74c3c]/30 bg-[#e74c3c]/10 px-4 py-1.5 mb-4 w-fit backdrop-blur-sm"
           >
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#e94560] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#e94560]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#e74c3c] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#e74c3c]" />
             </span>
-            <span className="text-xs font-medium uppercase tracking-wider text-[#e94560]">
-              Next-Gen Technology
+            <span className="text-xs font-medium uppercase tracking-wider text-[#e74c3c]">
+              Innovating Since 2010
             </span>
           </motion.div>
 
@@ -116,11 +151,11 @@ export default function HeroSection() {
             variants={fadeIn}
             className="text-4xl font-extrabold uppercase leading-[1.03] text-white sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl"
           >
-            <span className="text-gradient bg-gradient-to-r from-white via-white to-[#00ccff] bg-clip-text text-transparent">
+            <span className="text-gradient bg-gradient-to-r from-white via-[#f1c40f] to-[#e74c3c] bg-clip-text text-transparent">
               Your Technology
             </span>
             <br />
-            <span className="text-gradient bg-gradient-to-r from-[#e94560] via-[#ff6b6b] to-[#ff9f43] bg-clip-text text-transparent">
+            <span className="text-gradient bg-gradient-to-r from-[#9b59b6] via-[#e74c3c] to-[#f39c12] bg-clip-text text-transparent">
               And Innovation
             </span>
             <br />
@@ -138,195 +173,192 @@ export default function HeroSection() {
           <motion.div variants={fadeIn} className="mt-6 flex flex-wrap items-center gap-4">
             <Button 
               to="/services" 
-              className="group relative overflow-hidden bg-gradient-to-r from-[#e94560] to-[#ff6b6b] px-6 py-3 text-xs font-bold uppercase tracking-wide text-white transition-all duration-300 hover:shadow-2xl hover:shadow-[#e94560]/30 hover:scale-105 md:px-8 md:py-3.5 md:text-sm"
+              className="group relative overflow-hidden bg-gradient-to-r from-[#9b59b6] to-[#e74c3c] px-6 py-3 text-xs font-bold uppercase tracking-wide text-white transition-all duration-300 hover:shadow-2xl hover:shadow-[#9b59b6]/30 hover:scale-105 md:px-8 md:py-3.5 md:text-sm"
             >
               <span className="relative z-10 flex items-center gap-2">
                 Explore Teqnoor IQ
                 <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
               </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-[#ff6b6b] to-[#e94560] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <span className="absolute inset-0 bg-gradient-to-r from-[#e74c3c] to-[#9b59b6] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </Button>
             
             <button
               type="button"
               onClick={() => setVideoOpen(true)}
-              className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-white transition-all duration-300 hover:text-[#e94560] md:gap-3 md:text-sm"
+              className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-white/90 transition-all duration-300 hover:text-[#f1c40f] md:gap-3 md:text-sm"
             >
-              <span className="relative flex h-8 w-8 items-center justify-center rounded-full border border-white/30 transition-all duration-300 group-hover:border-[#e94560] group-hover:shadow-lg group-hover:shadow-[#e94560]/20 md:h-10 md:w-10">
-                <FiPlay className="ml-0.5 text-white transition-colors duration-300 group-hover:text-[#e94560]" size={12} />
+              <span className="relative flex h-8 w-8 items-center justify-center rounded-full border border-white/30 transition-all duration-300 group-hover:border-[#f1c40f] group-hover:shadow-lg group-hover:shadow-[#f1c40f]/20 md:h-10 md:w-10">
+                <FiPlay className="ml-0.5 text-white/90 transition-colors duration-300 group-hover:text-[#f1c40f]" size={12} />
               </span>
               Play video
             </button>
           </motion.div>
 
-          {/* Stats */}
-          <motion.dl variants={fadeIn} className="mt-8 flex flex-wrap gap-6 border-t border-white/5 pt-6 md:gap-10 md:mt-10 md:pt-8">
-            {HERO_STATS.map((stat) => (
-              <div key={stat.label} className="group">
-                <dt className="sr-only">{stat.label}</dt>
-                <dd className="font-display text-2xl font-extrabold text-white transition-colors duration-300 group-hover:text-[#e94560] md:text-3xl lg:text-4xl">
-                  {stat.value}
-                </dd>
-                <p className="mt-0.5 text-[10px] uppercase tracking-widest text-white/50 transition-colors duration-300 group-hover:text-white/70 md:text-xs">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
+          {/* Stats - Vibrant Colors */}
+          <motion.dl variants={fadeIn} className="mt-8 flex flex-wrap gap-6 border-t border-white/10 pt-6 md:gap-10 md:mt-10 md:pt-8">
+            {HERO_STATS.map((stat, index) => {
+              const colors = ["#9b59b6", "#e74c3c", "#f39c12"];
+              return (
+                <div key={stat.label} className="group">
+                  <dt className="sr-only">{stat.label}</dt>
+                  <dd 
+                    className="font-display text-2xl font-extrabold text-white transition-colors duration-300 group-hover:text-[#f1c40f] md:text-3xl lg:text-4xl"
+                    style={{ color: colors[index % colors.length] }}
+                  >
+                    {stat.value}
+                  </dd>
+                  <p className="mt-0.5 text-[10px] uppercase tracking-widest text-white/50 transition-colors duration-300 group-hover:text-white/70 md:text-xs">
+                    {stat.label}
+                  </p>
+                </div>
+              );
+            })}
           </motion.dl>
         </div>
 
-        {/* Right Column - Tech Animated Visual */}
+        {/* Right Column - New Animation (Rotating Geometric Shapes) */}
         <motion.div
           variants={fadeIn}
-          className="col-span-12 relative h-[45vh] w-full overflow-hidden rounded-lg border border-white/10 shadow-2xl shadow-[#e94560]/10 transition-all duration-500 hover:shadow-[#e94560]/30 lg:col-span-6 lg:h-full lg:min-h-[400px]"
+          className="col-span-12 relative h-[45vh] w-full overflow-hidden rounded-lg border border-white/10 shadow-2xl shadow-[#9b59b6]/20 transition-all duration-500 hover:shadow-[#9b59b6]/40 lg:col-span-6 lg:h-full lg:min-h-[400px]"
         >
-          {/* Animated Background - Dark Tech */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1a] via-[#0f3460] to-[#1a1a3e]" />
+          {/* Animated Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1a0a2e] via-[#2d1b69] to-[#4a1942]" />
           
-          {/* Fast Moving Tech Lines */}
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(6)].map((_, i) => (
-              <motion.div
-                key={`line-${i}`}
-                className="absolute h-[1px] bg-gradient-to-r from-transparent via-[#e94560]/30 to-transparent"
-                style={{
-                  width: `${60 + Math.random() * 40}%`,
-                  top: `${10 + i * 15}%`,
-                  left: `${Math.random() * 30}%`,
-                }}
-                animate={{
-                  x: ["-100%", "200%"],
-                }}
-                transition={{
-                  duration: 2 + i * 0.3,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: i * 0.2,
-                }}
-              />
-            ))}
-          </div>
+          {/* Animated Gradient Orbs */}
+          <motion.div
+            className="absolute inset-0"
+            animate={{
+              background: [
+                "radial-gradient(circle at 30% 40%, rgba(155, 89, 182, 0.3) 0%, transparent 60%)",
+                "radial-gradient(circle at 70% 60%, rgba(231, 76, 60, 0.3) 0%, transparent 60%)",
+                "radial-gradient(circle at 50% 50%, rgba(241, 196, 15, 0.2) 0%, transparent 60%)",
+                "radial-gradient(circle at 30% 40%, rgba(155, 89, 182, 0.3) 0%, transparent 60%)",
+              ],
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
 
-          {/* Fast Floating Tech Icons */}
+          {/* Rotating Geometric Shapes */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="relative h-72 w-72 md:h-96 md:w-96">
-              {/* Spinning Outer Ring - Fast */}
+              {/* Large Rotating Square */}
               <motion.div
-                className="absolute inset-0 rounded-full border border-[#e94560]/20"
+                className="absolute inset-0 border-2 border-[#9b59b6]/20 rounded-lg"
                 animate={{
                   rotate: [0, 360],
-                  scale: [1, 1.02, 1],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
-              
-              {/* Spinning Middle Ring - Fast Opposite */}
-              <motion.div
-                className="absolute inset-6 rounded-full border border-[#00ccff]/15"
-                animate={{
-                  rotate: [360, 0],
-                  scale: [1, 0.98, 1],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
-              
-              {/* Spinning Inner Ring - Fast */}
-              <motion.div
-                className="absolute inset-12 rounded-full border border-white/10"
-                animate={{
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
-
-              {/* Orbiting Tech Icons - Fast */}
-              <motion.div
-                className="absolute inset-0"
-                animate={{
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              >
-                {[
-                  { icon: FiCpu, color: "#e94560" },
-                  { icon: FiZap, color: "#ff9f43" },
-                  { icon: FiGlobe, color: "#00ccff" },
-                ].map((item, i) => {
-                  const Icon = item.icon;
-                  const angle = (i / 3) * 360;
-                  const radius = 80;
-                  return (
-                    <motion.div
-                      key={i}
-                      className="absolute"
-                      style={{
-                        left: `calc(50% + ${radius * Math.cos(angle * Math.PI / 180)}px - 12px)`,
-                        top: `calc(50% + ${radius * Math.sin(angle * Math.PI / 180)}px - 12px)`,
-                      }}
-                      animate={{
-                        scale: [1, 1.3, 1],
-                        opacity: [0.5, 1, 0.5],
-                      }}
-                      transition={{
-                        duration: 1.5 + i * 0.3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      <Icon size={24} style={{ color: item.color }} />
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
-
-              {/* Center - Rotating Tech Cube */}
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center"
-                animate={{
-                  rotateY: [0, 360],
-                  rotateX: [0, 180, 360],
                   scale: [1, 1.05, 1],
                 }}
                 transition={{
-                  duration: 4,
+                  duration: 12,
                   repeat: Infinity,
                   ease: "linear",
                 }}
-              >
-                <div className="relative flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-[#e94560]/30 to-[#00ccff]/30 backdrop-blur-sm border-2 border-[#e94560]/40 shadow-2xl shadow-[#e94560]/20">
-                  <motion.span
-                    className="text-4xl"
+              />
+              
+              {/* Medium Rotating Triangle (using diamond shape) */}
+              <motion.div
+                className="absolute inset-8 border-2 border-[#e74c3c]/20"
+                style={{
+                  transform: "rotate(45deg)",
+                  borderRadius: "50%",
+                }}
+                animate={{
+                  rotate: [360, 0],
+                  scale: [1, 0.95, 1],
+                }}
+                transition={{
+                  duration: 16,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+              
+              {/* Small Rotating Circle */}
+              <motion.div
+                className="absolute inset-16 rounded-full border-2 border-[#f1c40f]/20"
+                animate={{
+                  rotate: [0, 360],
+                  scale: [1, 1.03, 1],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
+
+              {/* Floating Diamonds */}
+              {[...Array(8)].map((_, i) => {
+                const angle = (i / 8) * 360;
+                const radius = 80;
+                const colors = ["#9b59b6", "#e74c3c", "#f39c12", "#8e44ad", "#c0392b"];
+                return (
+                  <motion.div
+                    key={i}
+                    className="absolute"
+                    style={{
+                      left: `calc(50% + ${radius * Math.cos(angle * Math.PI / 180)}px - 8px)`,
+                      top: `calc(50% + ${radius * Math.sin(angle * Math.PI / 180)}px - 8px)`,
+                    }}
                     animate={{
-                      scale: [1, 1.2, 1],
+                      rotate: [0, 360],
+                      scale: [0.8, 1.3, 0.8],
+                      opacity: [0.3, 0.8, 0.3],
                     }}
                     transition={{
-                      duration: 1.5,
+                      duration: 3 + i * 0.2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.3,
+                    }}
+                  >
+                    <div 
+                      className="h-4 w-4 transform rotate-45"
+                      style={{
+                        background: colors[i % colors.length],
+                        opacity: 0.6,
+                        boxShadow: `0 0 30px ${colors[i % colors.length]}40`,
+                      }}
+                    />
+                  </motion.div>
+                );
+              })}
+
+              {/* Center - Pulsing Star */}
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center"
+                animate={{
+                  scale: [1, 1.08, 1],
+                  rotate: [0, 15, -15, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <div className="relative flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-[#9b59b6]/30 to-[#e74c3c]/30 backdrop-blur-sm border-2 border-[#f1c40f]/30 shadow-2xl shadow-[#9b59b6]/20">
+                  <motion.span
+                    className="text-5xl"
+                    animate={{
+                      scale: [1, 1.15, 1],
+                    }}
+                    transition={{
+                      duration: 2,
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
                   >
-                    ⚡
+                    ✦
                   </motion.span>
                 </div>
               </motion.div>
 
-              {/* Fast Floating Code Particles */}
+              {/* Floating Code Particles */}
               {["{ }", "</>", "()", "[]", "=>", "//"].map((code, i) => (
                 <motion.div
                   key={i}
@@ -336,16 +368,17 @@ export default function HeroSection() {
                     top: `${10 + Math.random() * 80}%`,
                   }}
                   animate={{
-                    y: [0, -60 - Math.random() * 40, 0],
-                    x: [0, (Math.random() - 0.5) * 40, 0],
-                    opacity: [0, 0.6, 0],
+                    y: [0, -80 - Math.random() * 60, 0],
+                    x: [0, (Math.random() - 0.5) * 50, 0],
+                    opacity: [0, 0.5, 0],
                     scale: [0.5, 1.2, 0.5],
+                    rotate: [0, Math.random() * 180, 0],
                   }}
                   transition={{
-                    duration: 2 + Math.random() * 2,
+                    duration: 3 + Math.random() * 3,
                     repeat: Infinity,
                     ease: "easeInOut",
-                    delay: i * 0.4,
+                    delay: i * 0.5,
                   }}
                 >
                   {code}
@@ -354,27 +387,29 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Corner Tech Accent */}
+          {/* Corner Accent */}
           <span className="absolute top-0 right-0 h-20 w-20 overflow-hidden md:h-24 md:w-24">
-            <span className="absolute -right-12 -top-12 h-20 w-20 rotate-45 bg-gradient-to-br from-[#e94560]/30 to-[#00ccff]/20 md:h-24 md:w-24" />
+            <span className="absolute -right-12 -top-12 h-20 w-20 rotate-45 bg-gradient-to-br from-[#9b59b6]/30 to-[#e74c3c]/20 md:h-24 md:w-24" />
           </span>
 
-          {/* Bottom Label - Tech */}
+          {/* Bottom Label */}
           <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] font-mono font-medium uppercase tracking-widest text-white/30 md:text-xs">
-            &lt; interactive /&gt;
+            ✦ interactive ✦
           </span>
 
-          {/* Corner Tech Dots */}
-          <div className="absolute bottom-4 right-4 flex gap-1.5">
-            {[...Array(3)].map((_, i) => (
+          {/* Corner Dots */}
+          <div className="absolute bottom-4 right-4 flex gap-2">
+            {["#9b59b6", "#e74c3c", "#f1c40f"].map((color, i) => (
               <motion.div
                 key={i}
-                className="h-1.5 w-1.5 rounded-full bg-[#e94560]"
+                className="h-1.5 w-1.5 rounded-full"
+                style={{ background: color }}
                 animate={{
-                  opacity: [0.2, 1, 0.2],
+                  opacity: [0.2, 0.8, 0.2],
+                  scale: [1, 1.5, 1],
                 }}
                 transition={{
-                  duration: 1 + i * 0.3,
+                  duration: 2 + i * 0.3,
                   repeat: Infinity,
                   ease: "easeInOut",
                   delay: i * 0.2,
@@ -390,41 +425,41 @@ export default function HeroSection() {
             className="absolute inset-0 flex items-center justify-center cursor-pointer group"
           >
             <span className="relative flex h-16 w-16 items-center justify-center md:h-20 md:w-20">
-              {/* Fast Pulse Rings */}
+              {/* Pulse Rings */}
               <motion.span
-                className="absolute inset-0 rounded-full bg-[#e94560]/30"
+                className="absolute inset-0 rounded-full bg-[#9b59b6]/30"
                 animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.6, 0, 0.6],
+                  scale: [1, 1.8, 1],
+                  opacity: [0.5, 0, 0.5],
                 }}
                 transition={{
-                  duration: 1.5,
+                  duration: 2.5,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
               />
               <motion.span
-                className="absolute -inset-2 rounded-full border border-[#e94560]/20"
+                className="absolute -inset-3 rounded-full border border-[#e74c3c]/20"
                 animate={{
-                  scale: [1, 1.3, 1],
-                  opacity: [0.4, 0, 0.4],
+                  scale: [1, 1.5, 1],
+                  opacity: [0.3, 0, 0.3],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 3.5,
                   repeat: Infinity,
                   ease: "easeInOut",
-                  delay: 0.3,
+                  delay: 0.5,
                 }}
               />
               
               {/* Play Button */}
               <motion.span
-                className="relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#e94560] to-[#ff6b6b] text-white shadow-2xl shadow-[#e94560]/40 transition-all duration-500 group-hover:scale-110 group-hover:shadow-[#e94560]/60 md:h-16 md:w-16"
+                className="relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#9b59b6] to-[#e74c3c] text-white shadow-2xl shadow-[#9b59b6]/40 transition-all duration-500 group-hover:scale-110 group-hover:shadow-[#9b59b6]/60 md:h-16 md:w-16"
                 animate={{
                   scale: [1, 1.05, 1],
                 }}
                 transition={{
-                  duration: 1,
+                  duration: 1.5,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -462,13 +497,13 @@ export default function HeroSection() {
                 type="button"
                 onClick={() => setVideoOpen(false)}
                 aria-label="Close video"
-                className="absolute -top-12 right-0 rounded-full bg-white/10 p-2 text-white transition-all duration-300 hover:bg-[#e94560] hover:scale-110 md:-top-14 md:p-3"
+                className="absolute -top-12 right-0 rounded-full bg-white/10 p-2 text-white transition-all duration-300 hover:bg-[#e74c3c] hover:scale-110 md:-top-14 md:p-3"
               >
                 <FiX size={18} className="md:size-5" />
               </button>
               
               {/* Video Player */}
-              <div className="overflow-hidden rounded-xl bg-black shadow-2xl shadow-[#e94560]/20">
+              <div className="overflow-hidden rounded-xl bg-black shadow-2xl shadow-[#9b59b6]/20">
                 <video
                   src={HERO_VIDEO_URL}
                   controls
