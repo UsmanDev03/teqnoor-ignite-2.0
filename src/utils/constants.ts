@@ -17,6 +17,7 @@ export const NAV_LINKS = [
 ] as const;
 
 // Mega dropdown content - Teqnoor + MiQ style
+// ALL LINKS ENABLED ✅
 export const NAV_DROPDOWNS: Record<
   string,
   {
@@ -25,7 +26,7 @@ export const NAV_DROPDOWNS: Record<
   }
 > = {
   "About us": {
-    image: "https://picsum.photos/seed/about-main/600/400",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
     links: [
       {
         label: "Meet our people",
@@ -60,7 +61,7 @@ export const NAV_DROPDOWNS: Record<
     ],
   },
   Solutions: {
-    image: "https://picsum.photos/seed/solutions-main/600/400",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
     links: [
       {
         label: "Web Development",
@@ -95,7 +96,7 @@ export const NAV_DROPDOWNS: Record<
     ],
   },
   Sigma: {
-    image: "https://picsum.photos/seed/sigma-main/600/400",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
     links: [
       {
         label: "Platform overview",
@@ -125,7 +126,7 @@ export const NAV_DROPDOWNS: Record<
     ],
   },
   "Life at Teqnoor": {
-    image: "https://picsum.photos/seed/careers-main/600/400",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop",
     links: [
       {
         label: "Open roles",
@@ -150,7 +151,7 @@ export const NAV_DROPDOWNS: Record<
     ],
   },
   Resources: {
-    image: "https://picsum.photos/seed/resources-main/600/400",
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=400&fit=crop",
     links: [
       {
         label: "Insights",
@@ -193,7 +194,7 @@ export const HERO_STATS = [
 export const HERO_VIDEO_URL =
   "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4";
 // REPLACE LATER: placeholder thumbnail
-export const HERO_VIDEO_POSTER = "https://picsum.photos/seed/teqnoor-hero/960/640";
+export const HERO_VIDEO_POSTER = "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=960&h=640&fit=crop";
 
 export const STATS = [
   { number: 15, suffix: "", label: "Years of excellence", tone: "brand-blue" },
@@ -203,16 +204,16 @@ export const STATS = [
 ];
 
 export const PRODUCT_STEPS = [
-  { title: "PLAN", subtitle: "with Teqnoor IQ", image: "https://picsum.photos/seed/iq-plan/320/200" },
+  { title: "PLAN", subtitle: "with Teqnoor IQ", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=320&h=200&fit=crop" },
   {
     title: "BUILD",
     subtitle: "with Teqnoor IQ",
-    image: "https://picsum.photos/seed/iq-build/320/200",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=320&h=200&fit=crop",
   },
   {
     title: "OPTIMIZE",
     subtitle: "with Teqnoor IQ",
-    image: "https://picsum.photos/seed/iq-opt/320/200",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=320&h=200&fit=crop",
   },
 ];
 
@@ -309,33 +310,33 @@ export const AWARDS = [
 ];
 
 export const TEAM = [
-  { name: "Jane Smith", title: "CEO & Founder", image: "https://picsum.photos/seed/team1/400/400" },
-  { name: "Omar Haddad", title: "CTO", image: "https://picsum.photos/seed/team2/400/400" },
+  { name: "Jane Smith", title: "CEO & Founder", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" },
+  { name: "Omar Haddad", title: "CTO", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop" },
   {
     name: "Priya Nair",
     title: "VP Engineering",
-    image: "https://picsum.photos/seed/team3/400/400",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
   },
   {
     name: "Lucas Moretti",
     title: "Head of Design",
-    image: "https://picsum.photos/seed/team4/400/400",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
   },
-  { name: "Sara Lindqvist", title: "Head of Data", image: "https://picsum.photos/seed/team5/400/400" },
+  { name: "Sara Lindqvist", title: "Head of Data", image: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&h=400&fit=crop" },
   {
     name: "Daniel Okafor",
     title: "Director of Delivery",
-    image: "https://picsum.photos/seed/team6/400/400",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
   },
   {
     name: "Mei Chen",
     title: "Head of Cloud",
-    image: "https://picsum.photos/seed/team7/400/400",
+    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop",
   },
   {
     name: "Ahmed Raza",
     title: "Client Partner",
-    image: "https://picsum.photos/seed/team8/400/400",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
   },
 ];
 
@@ -365,42 +366,42 @@ export const PROJECTS = [
   {
     title: "E-Commerce Platform",
     category: "Web Development",
-    image: "https://picsum.photos/seed/project1/600/400",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
   },
   {
     title: "Retail Loyalty App",
     category: "App Development",
-    image: "https://picsum.photos/seed/project2/600/400",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
   },
   {
     title: "Bank Data Lakehouse",
     category: "Cloud Solutions",
-    image: "https://picsum.photos/seed/project3/600/400",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop",
   },
   {
     title: "Logistics Control Tower",
     category: "Web Development",
-    image: "https://picsum.photos/seed/project4/600/400",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
   },
   {
     title: "Telehealth Design System",
     category: "UI/UX Design",
-    image: "https://picsum.photos/seed/project5/600/400",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop",
   },
   {
     title: "Fleet Tracking Mobile",
     category: "App Development",
-    image: "https://picsum.photos/seed/project6/600/400",
+    image: "https://images.unsplash.com/photo-1535268647677-3002f5e7c1d0?w=600&h=400&fit=crop",
   },
   {
     title: "Media Buying Console",
     category: "UI/UX Design",
-    image: "https://picsum.photos/seed/project7/600/400",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
   },
   {
     title: "Multi-region Migration",
     category: "Cloud Solutions",
-    image: "https://picsum.photos/seed/project8/600/400",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
   },
 ];
 
@@ -410,42 +411,42 @@ export const BLOG_POSTS = [
     date: "Jan 15, 2026",
     category: "Engineering",
     excerpt: "Edge rendering, typed RPC and the slow death of the monolithic frontend.",
-    image: "https://picsum.photos/seed/blog1/600/400",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
   },
   {
     title: "Designing for data density",
     date: "Feb 02, 2026",
     category: "Design",
     excerpt: "How to keep dashboards readable when every pixel is fighting for attention.",
-    image: "https://picsum.photos/seed/blog2/600/400",
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop",
   },
   {
     title: "Cloud cost engineering in practice",
     date: "Feb 21, 2026",
     category: "Cloud",
     excerpt: "The five levers that cut our clients' infrastructure bills by a third.",
-    image: "https://picsum.photos/seed/blog3/600/400",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop",
   },
   {
     title: "AI copilots inside delivery teams",
     date: "Mar 08, 2026",
     category: "AI",
     excerpt: "What actually changed after a year of agents in our development workflow.",
-    image: "https://picsum.photos/seed/blog4/600/400",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
   },
   {
     title: "A pragmatic guide to design systems",
     date: "Mar 29, 2026",
     category: "Design",
     excerpt: "Start with tokens, not components. Everything else follows.",
-    image: "https://picsum.photos/seed/blog5/600/400",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
   },
   {
     title: "Measuring what marketing actually did",
     date: "Apr 14, 2026",
     category: "Data",
     excerpt: "Incrementality testing without a data science department.",
-    image: "https://picsum.photos/seed/blog6/600/400",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
   },
 ];
 
@@ -455,7 +456,7 @@ export const FEATURED_ARTICLE = {
   category: "Report",
   excerpt:
     "A field guide to connected video, retail media and privacy-safe measurement — built from 500+ campaigns run across our client base.",
-  image: "https://picsum.photos/seed/featured/1200/700",
+  image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=700&fit=crop",
 };
 
 export const JOBS = [
