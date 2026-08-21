@@ -34,8 +34,8 @@ function Home() {
       <HeroSection />
       <StatsSection />
       <ProductSection />
-      <Testimonials />
       <ServicesSection />
+      <Testimonials />
       <ExpertsSection />
       <AwardsSection />
       <CtaSection />
