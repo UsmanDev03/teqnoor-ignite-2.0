@@ -8,6 +8,10 @@ import ServicesSection from "@/components/home/ServicesSection";
 import ExpertsSection from "@/components/home/ExpertsSection";
 import AwardsSection from "@/components/home/AwardsSection";
 import CtaSection from "@/components/home/CtaSection";
+import RoiCalculatorSection from "@/components/home/RoiCalculatorSection";
+import SeoAuditSection from "@/components/home/SeoAuditSection";
+import BlogSection from "@/components/home/BlogSection";
+import FaqSection from "@/components/home/FaqSection";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -36,6 +40,10 @@ function Home() {
       <ProductSection />
       <ServicesSection />
       <Testimonials />
+      <RoiCalculatorSection />
+      <SeoAuditSection />
+      <BlogSection />
+      <FaqSection />
       <ExpertsSection />
       <AwardsSection />
       <CtaSection />
