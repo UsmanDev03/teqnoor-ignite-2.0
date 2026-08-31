@@ -3,7 +3,7 @@ import SectionTitle from "@/components/common/SectionTitle";
 import Button from "@/components/common/Button";
 import { SERVICES } from "@/utils/constants";
 
-export default function ServicesSection() {
+export default function SolutionsSection() {
   // Screenshot colors based vivid gradients
   const VIBRANT_GRADIENTS = [
     "from-[#a855f7] via-[#ec4899] to-[#f43f5e]", // Purple / Pink
@@ -81,20 +81,18 @@ export default function ServicesSection() {
           <div className="max-w-lg space-y-6">
             <SectionTitle
               eyebrow="Solutions"
-              title="Media solutions to reach your audiences across"
-              highlight="watching"
+              title="B2B Buyers Judge Fast. We Build Every Page to Win Them Over."
+              highlight="Win Them Over."
               className="text-4xl font-light text-white sm:text-5xl lg:text-5xl leading-tight"
             />
 
             <p className="text-base leading-relaxed text-purple-200/80 md:text-lg">
-              Our Advanced Media Solutions help you to solve your business challenges.
-              And because of the scale of our data and our truly partner agnostic approach,
-              every strategy is specifically tailored to your unique outcomes.
+B2B buyers do not browse. They check you out, compare you, and only then get in touch. So we build every site and campaign for that path: clear on what you do, easy to trust, and quick to act on. Every plan is shaped around your market and your goals, not a template.
             </p>
 
             <div className="pt-2">
               <Button
-                to="/services"
+                to="/solutions"
                 className="inline-flex items-center gap-2 rounded-none bg-gradient-to-r from-[#ff2a5f] to-[#ff7e29] px-8 py-4 text-xs font-extrabold uppercase tracking-widest text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30"
               >
                 <span>&rarr;</span> FIND YOUR SOLUTION

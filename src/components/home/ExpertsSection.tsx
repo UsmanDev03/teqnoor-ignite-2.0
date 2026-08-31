@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import SectionTitle from "@/components/common/SectionTitle";
 import Button from "@/components/common/Button";
-import CountUp from "@/components/common/CountUp";
-import { EXPERT_STATS } from "@/utils/constants";
-import { slideUp, staggerContainer, viewportOnce } from "@/utils/animations";
+import { slideUp, viewportOnce } from "@/utils/animations";
 
 export default function ExpertsSection() {
   return (
@@ -15,28 +13,39 @@ export default function ExpertsSection() {
       <div className="shell relative z-10">
         {/* Top Header Grid */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <SectionTitle 
-            title="Trusted experts that deliver" 
-            highlight="outstanding service" 
-            className="text-4xl font-light text-white sm:text-5xl lg:text-5xl"
-          />
+          <div className="space-y-4 max-w-2xl">
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold uppercase tracking-widest text-[#ff7e29]"
+            >
+              Verified Response
+            </motion.div>
+
+            <SectionTitle 
+              title="The Same Specialist Team," 
+              highlight="From First Call to Launch." 
+              className="text-3xl font-black uppercase tracking-tight text-white sm:text-4xl lg:text-5xl"
+            />
+          </div>
+
           <div className="max-w-md space-y-4">
             <p className="text-base leading-relaxed text-purple-200/80">
-              By combining 15 years of deep engineering, design and data expertise, our people deliver
-              work that consistently exceeds expectations.
+              The people you meet at the start are the people who build your project, the same specialist engineers, designers and marketers from first call to launch and beyond. They have delivered real B2B work across a wide range of sectors, so you get proven hands, clear communication, and a straight answer whenever you need one.
             </p>
             <div>
               <Button 
                 to="/about" 
                 className="inline-flex items-center gap-2 rounded-none bg-gradient-to-r from-[#ff2a5f] to-[#ff7e29] px-8 py-4 text-xs font-extrabold uppercase tracking-widest text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30"
               >
-                <span>&rarr;</span> MEET YOUR TEAM
+                <span>&rarr;</span> Meet the team
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Hero Image Container with Overlay Cards */}
+        {/* Hero Image Container */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -57,38 +66,6 @@ export default function ExpertsSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0c0414] via-[#0c0414]/65 to-[#0c0414]/30" />
             <div className="absolute inset-0 bg-purple-950/20 mix-blend-color" />
           </div>
-
-          {/* Floating Stats Banner Cards */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewportOnce}
-            variants={staggerContainer}
-            className="absolute inset-x-0 bottom-0 grid gap-4 p-4 sm:grid-cols-3 sm:p-8 lg:p-10"
-          >
-            {EXPERT_STATS.map((stat, idx) => (
-              <motion.div
-                key={stat.label || idx}
-                variants={slideUp}
-                whileHover={{ y: -6 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="group relative flex flex-col justify-between overflow-hidden border border-white/10 bg-[#170a2b]/90 p-6 backdrop-blur-md transition-all duration-300 hover:border-pink-500/50 hover:shadow-[0_0_25px_rgba(236,72,153,0.25)] sm:p-8"
-              >
-                {/* Subtle top hover line */}
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#ff2a5f] to-[#ff7e29] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                {/* Big Bold Stat Counter */}
-                <p className="font-display text-5xl font-black tracking-tight text-white drop-shadow-md sm:text-6xl lg:text-7xl">
-                  <CountUp value={stat.number} suffix={stat.suffix} />
-                </p>
-
-                {/* Label Below Counter */}
-                <p className="mt-3 text-xs font-semibold lowercase tracking-wide text-purple-200/90 sm:text-sm">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
         </motion.div>
       </div>
     </section>

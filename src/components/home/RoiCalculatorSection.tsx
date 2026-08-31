@@ -27,7 +27,7 @@ export default function RoiCalculatorSection() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold uppercase tracking-widest text-[#ff7e29]"
             >
-              <FiZap className="text-[#ff2a5f]" /> Real-time Revenue Estimator
+              <FiZap className="text-[#ff2a5f]" /> Free Revenue Estimator
             </motion.div>
 
             <motion.div
@@ -37,14 +37,14 @@ export default function RoiCalculatorSection() {
               transition={{ delay: 0.1 }}
               className="space-y-4"
             >
-              <h2 className="text-4xl sm:text-5xl xl:text-6xl font-black uppercase tracking-tight leading-none">
-                Predict Your <br />
+              <h2 className="text-3xl sm:text-4xl xl:text-5xl font-black uppercase tracking-tight leading-tight">
+                See What Winning More Clients Is Worth. <br />
                 <span className="bg-gradient-to-r from-[#ff2a5f] via-[#ff5341] to-[#ff7e29] bg-clip-text text-transparent">
-                  Revenue Growth
+                  Move the Sliders and Find Out.
                 </span>
               </h2>
               <p className="text-purple-200/70 text-base sm:text-lg leading-relaxed max-w-xl">
-                See how Teqnoor’s high-performance web architecture and conversion rate optimization scale your business bottom line.
+                Move the two sliders to your real spend and your target conversion rate. The tool shows the monthly revenue and return a faster, better-built site could bring. No sign-up, no email, just a quick sense of the prize.
               </p>
             </motion.div>
 
@@ -76,13 +76,10 @@ export default function RoiCalculatorSection() {
               </div>
             </motion.div>
 
-            {/* Key Value Highlights */}
-            <div className="grid grid-cols-2 gap-4 pt-2">
-              <div className="flex items-center gap-2.5 text-sm font-medium text-purple-100">
-                <FiCheckCircle className="text-[#ff2a5f] shrink-0" /> Zero Code Bottlenecks
-              </div>
-              <div className="flex items-center gap-2.5 text-sm font-medium text-purple-100">
-                <FiCheckCircle className="text-[#ff7e29] shrink-0" /> Rapid SSR Rendering
+            {/* Support Line */}
+            <div className="pt-2">
+              <div className="flex items-center gap-2.5 text-sm font-medium text-purple-200/80">
+                <FiCheckCircle className="text-[#ff2a5f] shrink-0" /> Based on real gains from faster load times and a site built to convert.
               </div>
             </div>
           </div>
@@ -159,7 +156,7 @@ export default function RoiCalculatorSection() {
 
                   <div className="h-[1px] w-full bg-white/10" />
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div>
                       <p className="text-xs font-bold uppercase tracking-widest text-purple-300/60">
                         Projected ROI Boost
@@ -171,9 +168,9 @@ export default function RoiCalculatorSection() {
 
                     <a 
                       href="#contact" 
-                      className="px-5 py-3 rounded-xl bg-gradient-to-r from-[#ff2a5f] to-[#ff7e29] text-xs font-black uppercase tracking-wider text-white shadow-lg hover:brightness-110 transition-all transform hover:scale-105"
+                      className="px-5 py-3 rounded-xl bg-gradient-to-r from-[#ff2a5f] to-[#ff7e29] text-xs font-black uppercase tracking-wider text-white shadow-lg hover:brightness-110 transition-all transform hover:scale-105 text-center"
                     >
-                      Scale Now
+                      Get the full plan behind these numbers
                     </a>
                   </div>
                 </div>

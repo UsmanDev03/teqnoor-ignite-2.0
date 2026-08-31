@@ -3,13 +3,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FiPlay, FiX, FiArrowRight } from "react-icons/fi";
 import Button from "@/components/common/Button";
 import { fadeIn, staggerContainer } from "@/utils/animations";
-import { HERO_STATS, HERO_VIDEO_POSTER, HERO_VIDEO_URL } from "@/utils/constants";
+import { HERO_VIDEO_POSTER, HERO_VIDEO_URL } from "@/utils/constants";
 
 export default function HeroSection() {
   const [videoOpen, setVideoOpen] = useState(false);
 
   return (
-    <section className="relative flex h-[85vh] min-h-[700px] w-full items-center overflow-hidden bg-[#12061c] pt-24">
+    <section className="relative flex h-[85vh] min-h-[700px] w-full items-center overflow-hidden bg-[#12061c] pt-24 pb-16">
       {/* Dynamic Background Gradient */}
       <div
         className="absolute inset-0"
@@ -62,77 +62,52 @@ export default function HeroSection() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-pink-500" />
             </span>
             <span className="text-xs font-semibold uppercase tracking-wider text-pink-300">
-              Innovating Since 2010
+              UK B2B growth partner
             </span>
           </motion.div>
 
-          <motion.h1
+        <motion.h1
             variants={fadeIn}
-            className="text-4xl font-extrabold uppercase leading-[1.03] text-white sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl"
+            className="text-3xl font-extrabold uppercase leading-[1.08] text-white sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl"
           >
             <span className="bg-gradient-to-r from-white via-amber-200 to-pink-400 bg-clip-text text-transparent">
-              Your Technology
+              Your Next High-Value Client
             </span>
             <br />
             <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">
-              And Innovation
+              Is Online Now.
             </span>
             <br />
-            <span className="text-white">Partner</span>
+            <span className="text-white text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight normal-case mt-2 block">
+              Our Web, App and Digital Marketing Team Wins Them for You.
+            </span>
           </motion.h1>
 
           <motion.p
             variants={fadeIn}
             className="mt-4 max-w-xl text-sm leading-relaxed text-white/80 md:text-base"
           >
-            We help brands and enterprises build stronger products, make smarter decisions and
-            achieve better performance.
+          We build fast, high-converting websites and apps for UK B2B firms, then run the digital marketing that turns searches into serious enquiries. One senior team, from first call to full pipeline.
           </motion.p>
 
           <motion.div variants={fadeIn} className="mt-6 flex flex-wrap items-center gap-5">
             <Button
-              to="/services"
+              to="/growth-plan"
               className="group relative overflow-hidden bg-gradient-to-r from-pink-600 via-rose-500 to-orange-500 px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-pink-500/25 transition-all duration-300 hover:scale-105 hover:shadow-pink-500/40 md:px-8 md:text-sm"
             >
               <span className="relative z-10 flex items-center gap-2">
-                Explore Teqnoor IQ
+                Get your growth plan
                 <FiArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
               </span>
             </Button>
 
-            <button
-              type="button"
-              onClick={() => setVideoOpen(true)}
-              className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:text-pink-300 md:text-sm"
+            <Button
+              to="/results"
+              className="group inline-flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:text-pink-300 md:text-sm bg-transparent border border-white/30 px-6 py-3.5 rounded-full hover:border-pink-400 hover:bg-pink-500/10"
             >
-              <span className="relative flex h-9 w-9 items-center justify-center rounded-full border border-white/30 transition-all duration-300 group-hover:border-pink-400 group-hover:bg-pink-500/10">
-                <FiPlay className="ml-0.5 text-white group-hover:text-pink-400" size={14} />
-              </span>
-              Play video
-            </button>
+              See the results
+            </Button>
           </motion.div>
-
-          <motion.dl
-            variants={fadeIn}
-            className="mt-8 flex flex-wrap gap-8 border-t border-white/10 pt-6 md:mt-10"
-          >
-            {HERO_STATS.map((stat, index) => {
-              const textColors = ["text-purple-400", "text-pink-400", "text-amber-400"];
-              return (
-                <div key={stat.label} className="group">
-                  <dt className="sr-only">{stat.label}</dt>
-                  <dd
-                    className={`font-display text-2xl font-extrabold transition-transform duration-300 group-hover:scale-105 md:text-3xl lg:text-4xl ${textColors[index % textColors.length]}`}
-                  >
-                    {stat.value}
-                  </dd>
-                  <p className="mt-0.5 text-[10px] uppercase tracking-widest text-white/50 md:text-xs">
-                    {stat.label}
-                  </p>
-                </div>
-              );
-            })}
-          </motion.dl>
         </div>
 
         {/* Center Blurry Gradient Divider (Col-6 separator) */}

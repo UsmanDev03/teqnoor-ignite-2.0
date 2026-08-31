@@ -1,9 +1,29 @@
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
-import { PRODUCT_STEPS } from "@/utils/constants";
+import Button from "@/components/common/Button";
+import SectionTitle from "@/components/common/SectionTitle";
 import { slideUp, staggerContainer, viewportOnce } from "@/utils/animations";
 
-export default function ProductSection() {
+export default function HowWeWorkSection() {
+  const WORK_STEPS = [
+    {
+      title: "Free audit and call",
+      description: "We run an AI-assisted check of your site, your rankings and your rivals, then send a short action plan. No cost, no pressure.",
+    },
+    {
+      title: "A 90-day plan",
+      description: "We agree the work, the order and the goals up front, so you know what you are getting and when.",
+    },
+    {
+      title: "Build and launch",
+      description: "We design, build and ship the work, then set up tracking so every lead is counted from day one.",
+    },
+    {
+      title: "Report and grow",
+      description: "You get a plain-English report each month. We put more behind what works and drop what does not.",
+    },
+  ];
+
   const CARD_GRADIENTS = [
     "from-[#7c3aed] via-[#d946ef] to-[#ec4899]",
     "from-[#ff2a5f] via-[#ff523b] to-[#ff7e29]",
@@ -18,7 +38,8 @@ export default function ProductSection() {
       <div className="pointer-events-none absolute -right-40 top-1/3 h-[500px] w-[500px] rounded-full bg-purple-600/20 blur-[130px]" />
 
       <div className="shell relative z-10 grid items-center gap-12 lg:grid-cols-12">
-        {/* Left Typography Section */}
+        
+        {/* Left Typography & Copy Section */}
         <div className="lg:col-span-5">
           <motion.div
             initial="hidden"
@@ -27,46 +48,32 @@ export default function ProductSection() {
             variants={staggerContainer}
             className="max-w-xl space-y-6"
           >
-            <motion.div
-              variants={slideUp}
-              className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-pink-500/30 bg-pink-500/10 px-4 py-1.5 backdrop-blur-md"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-pink-500 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-pink-500" />
-              </span>
-              <span className="text-xs font-semibold uppercase tracking-wider text-pink-300">
-                Teqnoor IQ
-              </span>
-            </motion.div>
-
-            <motion.h2
-              variants={slideUp}
-              className="text-3xl font-extrabold uppercase leading-[1.08] text-white sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl"
-            >
-              <span className="bg-gradient-to-r from-white via-amber-200 to-pink-400 bg-clip-text text-transparent">
-                Plan, Build and Grow
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">
-                in One Place.
-              </span>
-              <br />
-              <span className="text-white text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight normal-case mt-2 block">
-                Teqnoor IQ Keeps It All in View.
-              </span>
-            </motion.h2>
+            <SectionTitle
+              eyebrow="How We Work"
+              title="No Black Box, Just a Clear Plan."
+              highlight="Here Is How We Bring You Clients."
+              className="text-4xl font-light text-white sm:text-5xl lg:text-5xl leading-tight"
+            />
 
             <motion.p
               variants={slideUp}
-              className="mt-4 max-w-xl text-sm leading-relaxed text-white/80 md:text-base"
+              className="text-base leading-relaxed text-purple-200/90 md:text-lg"
             >
-              Teqnoor IQ is the toolkit we run every project through. You get one clear view of your site, your search rankings and your leads, so nothing hides in a spreadsheet. We plan the work, build it, then keep tuning it against the numbers that pay your bills.
+              You always know what is happening and why. We keep the steps simple and the reporting plain, so there are no black boxes and no jargon.
             </motion.p>
+
+            <motion.div variants={slideUp} className="pt-2">
+              <Button
+                to="/audit"
+                className="inline-flex items-center gap-2 rounded-none bg-gradient-to-r from-[#ff2a5f] to-[#ff7e29] px-8 py-4 text-xs font-extrabold uppercase tracking-widest text-white transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-orange-500/30"
+              >
+                <span>&rarr;</span> Book your free audit
+              </Button>
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Right Feature Banners / Stack Section */}
+        {/* Right Steps Stack Section */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -74,7 +81,7 @@ export default function ProductSection() {
           variants={staggerContainer}
           className="space-y-4 lg:col-span-7 max-h-[600px] overflow-y-auto pr-3 [scrollbar-width:thin] [scrollbar-color:rgba(236,72,153,0.4)_rgba(22,9,38,0.8)] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-[#160926]/80 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-pink-500/40 hover:[&::-webkit-scrollbar-thumb]:bg-pink-500/70"
         >
-          {PRODUCT_STEPS.map((step, index) => {
+          {WORK_STEPS.map((step, index) => {
             const gradient = CARD_GRADIENTS[index % CARD_GRADIENTS.length];
 
             return (
@@ -83,16 +90,8 @@ export default function ProductSection() {
                 variants={slideUp}
                 className="group relative flex w-full items-center justify-between overflow-hidden rounded-xl border border-white/10 bg-[#160926] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-pink-500/60 hover:shadow-[0_0_30px_rgba(236,72,153,0.35)]"
               >
-                {/* Background Gradient & Image Overlay */}
+                {/* Background Gradient Overlay */}
                 <div className="absolute inset-0 opacity-25">
-                  {step.image && (
-                    <img
-                      src={step.image}
-                      alt={step.title}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                  )}
                   <div className={`absolute inset-0 bg-gradient-to-r ${gradient} mix-blend-color-dodge`} />
                 </div>
 
@@ -104,11 +103,6 @@ export default function ProductSection() {
                   <h3 className="font-display text-lg font-black uppercase tracking-wider text-white transition-colors duration-300 group-hover:text-pink-300 sm:text-xl">
                     {step.title}
                   </h3>
-                  {step.subtitle && (
-                    <p className="mt-1 text-xs font-black uppercase tracking-widest text-pink-400">
-                      {step.subtitle}
-                    </p>
-                  )}
                   <p className="mt-2 text-xs leading-relaxed text-purple-200/80 sm:text-sm max-w-xl">
                     {step.description}
                   </p>
@@ -122,6 +116,7 @@ export default function ProductSection() {
             );
           })}
         </motion.div>
+
       </div>
     </section>
   );
