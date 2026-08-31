@@ -19,16 +19,16 @@ const POSTS: Post[] = [
     category: "Engineering",
     date: "Aug 12, 2026",
     readTime: "5 min read",
-    excerpt: "Best practices for SSR caching, edge network deployment, and optimizing database queries in Next.js.",
+    excerpt: "How to keep a Next.js site fast when traffic spikes. Simple, tested ways to handle caching, edge delivery and heavy database calls.",
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: 2,
     title: "Maximizing Conversion Rates with Custom Web Architecture",
-    category: "Design & UX",
+    category: "Design and UX",
     date: "Aug 05, 2026",
     readTime: "4 min read",
-    excerpt: "Why off-the-shelf templates limit growth and how custom UI architecture drives business ROI.",
+    excerpt: "Why templates cap your growth, and how a custom build wins more clients. What off-the-shelf sites cost you in the long run.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
   },
   {
@@ -37,7 +37,7 @@ const POSTS: Post[] = [
     category: "SEO Strategy",
     date: "Jul 28, 2026",
     readTime: "6 min read",
-    excerpt: "Preparing your web properties for AI search crawlers, rapid rendering, and strict performance metrics.",
+    excerpt: "Technical SEO in 2026: Core Web Vitals and AI search. How to get your site ready for AI crawlers and strict speed limits.",
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80",
   },
 ];
@@ -68,11 +68,11 @@ export default function BlogSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-4xl sm:text-5xl font-black uppercase tracking-tight leading-none"
+              className="text-3xl sm:text-4xl xl:text-5xl font-black uppercase tracking-tight leading-tight"
             >
-              Latest Insights & <br />
+              Guides That Help You Win Clients. <br />
               <span className="bg-gradient-to-r from-[#ff2a5f] via-[#ff5341] to-[#ff7e29] bg-clip-text text-transparent">
-                Engineering News
+                Straight From the Team Who Build It.
               </span>
             </motion.h2>
           </div>
@@ -86,7 +86,7 @@ export default function BlogSection() {
               to="/blog" 
               className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest text-white hover:border-[#ff2a5f]/50 hover:bg-white/10 transition-all group"
             >
-              View All Articles 
+              View all articles 
               <FiArrowUpRight className="text-base text-[#ff7e29] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </motion.div>

@@ -139,26 +139,41 @@ export const NAV_DROPDOWNS: Record<
 export const REGIONS = ["Global", "EMEA", "APAC", "North America"] as const;
 
 export const HERO_STATS = [
-  { value: "15+", label: "Years" },
-  { value: "500+", label: "Projects" },
-  { value: "200+", label: "Clients" },
+  { value: "1,096", label: "B2B leads generated for JK Foods across 11 campaigns" },
+  { value: "£6.43", label: "Average cost per lead on those campaigns" },
+  { value: "1.61M", label: "Search impressions earned for one client" },
+  { value: "5 Years", label: "Winning clients for UK B2B brands" },
 ];
-
 export const HERO_VIDEO_URL =
   "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4";
 export const HERO_VIDEO_POSTER = "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=960&h=640&fit=crop";
 
 export const STATS = [
-  { number: 15, suffix: "", label: "Years of excellence", tone: "brand-blue" },
-  { number: 500, suffix: "+", label: "Projects delivered", tone: "brand-purple" },
-  { number: 200, suffix: "+", label: "Happy clients", tone: "brand-pink" },
-  { number: 50, suffix: "+", label: "Team members", tone: "brand-cyan" },
+  { number: 1096, suffix: "", label: "B2B leads generated" },
+  { number: 6.43, suffix: "", label: "Average cost per lead (£)" },
+  { number: 1.61, suffix: "M", label: "Search impressions" },
+  { number: 5, suffix: " Years", label: "Winning UK B2B clients" },
 ];
 
 export const PRODUCT_STEPS = [
-  { title: "PLAN", subtitle: "with Teqnoor IQ", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=320&h=200&fit=crop" },
-  { title: "BUILD", subtitle: "with Teqnoor IQ", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=320&h=200&fit=crop" },
-  { title: "OPTIMIZE", subtitle: "with Teqnoor IQ", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=320&h=200&fit=crop" },
+  {
+    title: "PLAN WITH TEQNOOR IQ",
+    subtitle: "Strategy & 90-Day Roadmap",
+    description: "We map your buyers, your competitors and the searches worth winning, then agree a 90-day plan before any work starts.",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=320&h=200&fit=crop",
+  },
+  {
+    title: "BUILD WITH TEQNOOR IQ",
+    subtitle: "High-Performance Execution",
+    description: "We design and build the pages, apps and cloud setup, made to load fast and turn visitors into enquiries.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=320&h=200&fit=crop",
+  },
+  {
+    title: "GROW WITH TEQNOOR IQ",
+    subtitle: "Tracking & Optimization",
+    description: "We track every lead and every rank, put more behind what works, and report it in plain English each month.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=320&h=200&fit=crop",
+  },
 ];
 
 export const TESTIMONIALS = [

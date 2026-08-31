@@ -31,7 +31,7 @@ export default function SeoAuditSection() {
               viewport={{ once: true }}
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold uppercase tracking-widest text-[#ff7e29]"
             >
-              <FiSearch className="text-[#ff2a5f]" /> Instant Website Analysis
+              <FiSearch className="text-[#ff2a5f]" /> Free Website Audit
             </motion.div>
 
             <motion.div
@@ -41,14 +41,14 @@ export default function SeoAuditSection() {
               transition={{ delay: 0.1 }}
               className="space-y-4"
             >
-              <h2 className="text-4xl sm:text-5xl xl:text-6xl font-black uppercase tracking-tight leading-none">
-                Free Technical <br />
+              <h2 className="text-3xl sm:text-4xl xl:text-5xl font-black uppercase tracking-tight leading-tight">
+                Your Site Is Leaking Leads. <br />
                 <span className="bg-gradient-to-r from-[#ff2a5f] via-[#ff5341] to-[#ff7e29] bg-clip-text text-transparent">
-                  SEO & Speed Audit
+                  This Free Audit Shows You Where.
                 </span>
               </h2>
               <p className="text-purple-200/70 text-base sm:text-lg leading-relaxed max-w-xl">
-                Uncover hidden performance bottlenecks, Core Web Vitals issues, and high-impact SEO opportunities holding your domain back.
+                Slow pages and hidden technical faults quietly cost you leads every day. Enter your web address and we will run a free check of your speed, your Core Web Vitals and how easily Google and AI crawlers can read your site. You get a plain-English report, no password needed.
               </p>
             </motion.div>
 
@@ -60,7 +60,7 @@ export default function SeoAuditSection() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-white">Core Web Vitals</h4>
-                  <p className="text-xs text-purple-200/60 mt-0.5">LCP, CLS & FID breakdown</p>
+                  <p className="text-xs text-purple-200/60 mt-0.5">A clear read on your load speed, layout shift and responsiveness, and what to fix first.</p>
                 </div>
               </div>
 
@@ -69,8 +69,8 @@ export default function SeoAuditSection() {
                   <FiTrendingUp className="text-lg" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white">Search Indexing</h4>
-                  <p className="text-xs text-purple-200/60 mt-0.5">AI crawler readability review</p>
+                  <h4 className="text-sm font-bold text-white">Search and AI readability</h4>
+                  <p className="text-xs text-purple-200/60 mt-0.5">We check whether Google and AI search tools can crawl and understand your pages.</p>
                 </div>
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function SeoAuditSection() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="space-y-2">
                     <h3 className="text-2xl font-black text-white uppercase tracking-wide">Start Your Analysis</h3>
-                    <p className="text-xs text-purple-200/60">Enter your domain details to generate an instant technical report.</p>
+                    <p className="text-xs text-purple-200/60">Enter your website address and where to send the report.</p>
                   </div>
 
                   {/* Input 1: Website URL */}
@@ -154,7 +154,7 @@ export default function SeoAuditSection() {
                     type="submit"
                     className="w-full py-4 rounded-xl bg-gradient-to-r from-[#ff2a5f] to-[#ff7e29] text-xs font-black uppercase tracking-widest text-white shadow-xl hover:brightness-110 transition-all transform hover:scale-[1.02]"
                   >
-                    Generate Free Audit Report
+                    Generate my free audit report
                   </button>
                 </form>
               )}

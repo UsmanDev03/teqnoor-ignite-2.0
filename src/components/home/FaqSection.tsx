@@ -12,46 +12,60 @@ import {
 const FAQS = [
   {
     id: 1,
-    question: "What core tech stacks does Teqnoor Limited specialize in?",
-    answer: "We specialize in full-stack web engineering using modern frameworks like React, Next.js, TypeScript, Node.js, Laravel, Supabase, and SQL/NoSQL databases tailored for performance and enterprise scale."
+    question: "What does Teqnoor do, and who do you work with?",
+    answer: "We are a UK team that builds websites, apps and cloud setups, then runs AI-driven marketing to bring in leads. We work mainly with B2B and service firms, including clients in food, healthcare and automotive such as JK Foods UK and TMDrive."
   },
   {
     id: 2,
-    question: "How long does a custom web project typically take?",
-    answer: "Project timelines vary based on scope. Typical web applications take between 4 to 8 weeks from design architecture to final deployment."
+    question: "Which technologies do you build with?",
+    answer: "We build with React, Next.js, TypeScript, Node.js and Laravel, backed by SQL and NoSQL databases. We host and scale on the cloud. We pick the stack to fit your job and your budget, not the other way round, and we keep it fast and easy to maintain."
   },
   {
     id: 3,
-    question: "Do you offer post-launch maintenance and support?",
-    answer: "Yes, Teqnoor provides ongoing technical support, infrastructure maintenance, security updates, and performance monitoring."
+    question: "How long does a website or app project take?",
+    answer: "Most websites take four to ten weeks, depending on how many pages and features you need. Apps and larger builds take longer. After a short scoping call we give you a firm timeline with clear stages, so you always know what is being built and when."
   },
   {
     id: 4,
-    question: "How does the SEO and Audit process work?",
-    answer: "We perform a thorough technical review analyzing code performance, page speed, mobile optimization, crawlability, and schema structures to generate a prioritized optimization roadmap."
+    question: "How much does a project cost?",
+    answer: "Every project is priced after a free scoping call, so you only pay for what you need. We share a fixed quote before any work starts, with no surprise fees. Small sites cost far less than large apps or full growth campaigns, and we will tell you honestly where your budget is best spent."
   },
   {
     id: 5,
-    question: "How do you handle project management and communication?",
-    answer: "We use agile workflows with weekly sprint demos, dedicated Slack channels, and clear milestones so you have full visibility into engineering progress."
+    question: "Will my site show up on Google and in AI search like ChatGPT?",
+    answer: "Yes. We build every page to load fast and read cleanly, which is what Google and AI search tools both reward. We also structure your content so tools like ChatGPT, Perplexity and Google AI Overviews can quote you. For one client we earned 1.61 million search impressions this way."
   },
   {
     id: 6,
-    question: "Can you seamlessly integrate custom APIs and payment gateways?",
-    answer: "Absolutely. We specialize in custom integrations including Stripe, PayPal, Mux Video, external CRMs, and custom REST or GraphQL APIs."
+    question: "Do you offer support and maintenance after launch?",
+    answer: "Yes. We do not build your site and vanish. We offer ongoing support plans that cover updates, security, backups and small changes, plus performance checks. You deal with the same team that built the site, so nothing gets lost in translation."
   },
   {
     id: 7,
-    question: "Do you assist with server configuration and cloud deployment?",
-    answer: "Yes, we handle complete DevOps workflows including server setup, Vercel/Hostinger/AWS deployments, DNS configuration, and automated CI/CD pipelines."
+    question: "Can you work with my current site, tools and payment systems?",
+    answer: "Yes. We can improve your existing site or rebuild it, and we connect the tools you already use. We integrate custom APIs, CRMs and payment gateways such as Stripe and PayPal, so your site, your data and your sales process all talk to each other."
   },
   {
     id: 8,
-    question: "What makes custom web development better than standard templates?",
-    answer: "Custom builds offer superior performance, robust security, tailored UI/UX, unlimited scalability, and complete control over your technical roadmap without template bloat."
+    question: "How do we get started, and how will we stay in touch?",
+    answer: "Start with a free strategy call. We look at your site, your rankings and your competitors, then send a short action plan. If you go ahead, you get a single point of contact, regular updates and a plain-English report each month. No account-manager runaround."
+  },
+  {
+    id: 9,
+    question: "Who owns the website and code after launch?",
+    answer: "You do. Once the project is paid, the site, the code, the domain and the hosting account are all yours. We hand over full access and logins, and we can train your team to run it. You are never locked in or held to ransom for a small change."
+  },
+  {
+    id: 10,
+    question: "What is included in the price, and what costs extra?",
+    answer: "Your quote lists exactly what you get, such as design, build, testing and launch. Hosting, domains and SSL are set out on their own line, so there are no surprises. We tell you the full picture before you sign, not after the work has started."
+  },
+  {
+    id: 11,
+    question: "Can you redesign my site without hurting my Google rankings?",
+    answer: "Yes. We map and redirect your current pages, keep the content and tags that already rank, and hold your page speed steady. We watch your rankings closely after launch and fix any dip fast, so a fresh look does not cost you traffic or leads."
   }
 ];
-
 export default function FaqSection() {
   // Pinned index stores the permanently clicked selection
   const [pinnedIdx, setPinnedIdx] = useState<number>(0);
@@ -88,7 +102,7 @@ export default function FaqSection() {
             transition={{ delay: 0.05 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight"
           >
-            Browse <span className="bg-gradient-to-r from-[#ff2a5f] via-[#ff5341] to-[#ff7e29] bg-clip-text text-transparent">Questions.</span>
+            Questions Buyers Ask Before They Choose Us.<span className="bg-gradient-to-r from-[#ff2a5f] via-[#ff5341] to-[#ff7e29] bg-clip-text text-transparent"> Answered Straight.</span>
           </motion.h2>
         </div>
 
